@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management</title>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+<header>
+<button id="nav" value="Remove Stock">Remove Stock</button>
+</header>
+       <!-- Add Stock Container -->
+    <div class="container addSection">
+        <h1>Add Stock</h1>
+        <form>
+            <div class="form-group">
+                <label for="addProductCode">Select a Product Code</label>
+                <select id="addProductCode" required>
+                  <option value="productName1">PRODUCT01</option>
+                        <option value="productName2">PRODUCT02</option>
+                        <option value="productName3">PRODUCT03</option> 
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="itemsReceived">Items Received</label>
+                <input type="number" id="itemsReceived" placeholder="Enter number of items" required>
+            </div>
+            <div class="form-group">
+                <label for="pricePerItem">Price per Item Received</label>
+                <input type="number" id="pricePerItem" placeholder="Enter price per item" required>
+            </div>
+            <button type="button" class="btn addStock">Add Stock</button>
+        </form>
+    </div>
+    
+        <!-- Remove Stock Container -->
+    <div class="container removeStock">
+        <h1>Remove Stock</h1>
+        <form>
+            <div class="form-group">
+                <label for="removeProductCode">Select a Product Code</label>
+                <select id="removeProductCode" required>
+                    <option value="productName1">PRODUCT01</option>
+                        <option value="productName2">PRODUCT02</option>
+                        <option value="productName3">PRODUCT03</option>                  
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="buyerEmail">Buyer Email Address</label>
+                <input type="email" id="buyerEmail" placeholder="Enter buyer email"  required>
+            </div>
+            <div class="form-group">
+                <label for="itemsBought">Items Bought</label>
+                <input type="number" id="itemsBought" placeholder="Enter number of items"  required>
+            </div>
+            <button type="button" class="btn itemShipped">Item Shipped</button>
+        </form>
+    </div>
+
+    <!-- Stock Levels Container -->
+    <div class="container">
+        <h1>Stock Levels</h1>
+        <div class="stock-item">
+            <div>
+                <div class="productName1">PRODUCT01</div>
+                <div class="productPrice1" value="400.89">400.89</div>
+            </div>
+            <div class="prod1Quantity" value="5">5</div>
+        </div>
+        <div class="stock-item">
+            <div>
+                <div class="productName2">PRODUCT02</div>
+                <div class="productPrice2" value="78.83">78.83</div>
+            </div>
+            <div class="prod2Quantity" value="12" >12</div>
+        </div>
+        <div class="stock-item">
+            <div>
+                <div class="productName3">PRODUCT03</div>
+                <div class="productPrice3" value="56.03">56.03</div>
+            </div>
+            <div class="prod3Quantity" value="2">2</div>
+        </div>
+    </div>
+<script charset="UTF-8 " src="./stock.js">
+
+
+</script>
+</body>
+</html>
