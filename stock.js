@@ -12,7 +12,6 @@ const product1Quantity= document.querySelector(".prod1Quantity");
 
 const product2Quantity= document.querySelector(".prod2Quantity");
 
-
 const product3Quantity= document.querySelector(".prod3Quantity");
 
 const productPrice1= document.querySelector(".productPrice1");
@@ -21,30 +20,18 @@ const productPrice2= document.querySelector(".productPrice2");
 
 const productPrice3= document.querySelector(".productPrice3");
 
-let stockProduct1= document.querySelector(".prod1Quantity").getAttribute("value");
+let product1Stock=Number(document.querySelector(".prod1Quantity").getAttribute("value"));
 
-let product1Stock= Number(stockProduct1);
+let product2Stock=Number (document.querySelector(".prod2Quantity").getAttribute("value"));
 
-let stockProduct2= document.querySelector(".prod2Quantity").getAttribute("value");
+let product3Stock= Number(document.querySelector(".prod3Quantity").getAttribute("value"));
 
-let product2Stock= Number(stockProduct2);
+let prod1Price=Number(document.querySelector(".productPrice1").getAttribute("value"));
 
-let stockProduct3= document.querySelector(".prod3Quantity").getAttribute("value");
+let prod2Price=Number(document.querySelector(".productPrice2").getAttribute("value"));
 
-let product3Stock= Number(stockProduct3);
+let prod3Price=Number(document.querySelector(".productPrice3").getAttribute("value"));
 
-let product1Price=document.querySelector(".productPrice1").getAttribute("value");
-
-
-let product2Price=document.querySelector(".productPrice2").getAttribute("value");
-
-let product3Price=document.querySelector(".productPrice3").getAttribute("value");
-
-let prod1Price= Number(product1Price);
-
-let prod2Price= Number(product2Price);
-
-let prod3Price= Number(product3Price);
 
 let clientOrders={};
 
@@ -54,7 +41,7 @@ addButton.addEventListener("click", addStock);
 
  shipButton.addEventListener("click", removeStock)
  
- 
+ //hide and display sections 
 function displayOptions(){
     
     if(this.value==="Remove Stock"){
@@ -92,13 +79,11 @@ function addStock(){
 let productName= document.querySelector("#addProductCode").value; 
     
   
-    let itemsReceived= document.querySelector("#itemsReceived").value;
+    let itemsReceived= Number(document.querySelector("#itemsReceived").value);
     
- itemsReceived= Number(itemsReceived);
  
- let pricePerItem= document.querySelector("#pricePerItem").value;
+ let pricePerItem=Number(document.querySelector("#pricePerItem").value);
   
-  pricePerItem=Number(pricePerItem);
   
   if(itemsReceived && pricePerItem && itemsReceived>0 && pricePerItem>0){
       
@@ -110,9 +95,8 @@ let productName= document.querySelector("#addProductCode").value;
         product1Quantity.innerText=product1Stock;
         
         prod1Price= avgPricePerItem(prod1Price,pricePerItem);
-        
-           
-   productPrice1.innerText= prod1Price;                        
+                
+   productPrice1.innerText= prod1Price.toFixed(2);                      
        
       
   }else if(productName==="productName2"){
@@ -123,7 +107,7 @@ let productName= document.querySelector("#addProductCode").value;
           
               prod2Price= avgPricePerItem(prod2Price,pricePerItem);
               
-      productPrice2.innerText= prod2Price;        
+      productPrice2.innerText= prod2Price.toFixed(2);    
           
   } else{
   	
@@ -133,7 +117,7 @@ let productName= document.querySelector("#addProductCode").value;
     
     prod3Price= avgPricePerItem(prod3Price,pricePerItem);
     
-    productPrice3.innerText= prod3Price; 
+    productPrice3.innerText= prod3Price.toFixed(2);
           
   }
   
@@ -167,12 +151,11 @@ function removeStock(){
     let productName= document.querySelector("#removeProductCode").value; 
     
   
-    let itemsBought= document.querySelector("#itemsBought").value;
+    let itemsBought= Number(document.querySelector("#itemsBought").value);
  
    
   if(itemsBought && itemsBought>0){
       
-      itemsBought= Number(itemsBought);
       
       if(productName==="productName1"){
           
@@ -249,7 +232,9 @@ function avgPricePerItem(oldPrice,itemPrice){
   
   let newPrice=(oldPrice+itemPrice)/2;
   
-  return newPrice; 
+  
+  
+  return newPrice;
     
 }
 
